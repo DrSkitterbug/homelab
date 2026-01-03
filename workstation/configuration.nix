@@ -34,7 +34,7 @@
   ];
 
   # Enable Hyprland
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   programs.hyprland = {
     enable = true;
@@ -58,8 +58,6 @@
     ];
   };
 
-
-
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -73,7 +71,7 @@
   users.users.zeta = {
     isNormalUser = true;
     description = "Zeta";
-    extraGroups = [ "networkmanager" "wheel", "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
     ];
   };
@@ -81,8 +79,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-
-
      # Hyprland
      waybar
      hyprpaper
@@ -92,6 +88,12 @@
      # Utilities
      wl-clipboard
      wofi
+
+     # Terminal
+     kitty
+
+     # File browsar
+     thunar
 
      # Greeter
      tuigreet
@@ -106,7 +108,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
 
