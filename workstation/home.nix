@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  home.username = "zeta"
+  home.username = "zeta";
   home.homeDirectory = "/home/zeta";
   
   home.packages = with pkgs; [
