@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/sh
 
 # Update our flake repository
 nix flake update userData
