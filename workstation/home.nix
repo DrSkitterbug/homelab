@@ -80,11 +80,12 @@ in
         -o ${wallpaperDir}/wallpapers.tar.gz \
         ${wallpaperDir}/wallpapers.tar.gz.age
 
-
       ${pkgs.gnutar}/bin/tar \
         --use-compress-program=${pkgs.gzip}/bin/gzip \
         -xvf ${wallpaperDir}/wallpapers.tar.gz \
         -C ${wallpaperDir}
+
+      rm ${wallpaperDir}/wallpapers.tar.gz
     else
       echo "Missing tarball or the secret to unpack wallpaper archive."
     fi
