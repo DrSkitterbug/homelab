@@ -113,11 +113,29 @@
   # Thunar services, thumbnails and mounts and trashbin support.
   services.gvfs.enable = true;
   services.tumbler.enable = true;
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
-
+  
+  fonts = {
+    enableDefaultPackages = true;
+    
+    packages = with pkgs; [
+      noto-fonts-lgc-plus
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+      nerd-fonts.jetbrains-mono
+    ];
+    
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        sansSerif = [ "Noto Sans" "Noto Color Emoji" ];
+        serif = [ "Noto Serif" "Noto Color Emoji" ];
+        monospace = [ "JetBrainsMono Nerd Font" "Noto Color Emoji" ];
+      };
+    };
+  };
 
   system.stateVersion = "25.11";
 }
+  
