@@ -2,8 +2,9 @@
 let
   user = "zeta";
   homeDir = "/home/${user}";
-  filesDir = "${homeDir}/.files/";
-  secretsDir = "${filesDir}/secrets";
+  filesDir = "${homeDir}/.files";
+  privSecretsDir = "${homeDir}/.secrets";
+  pubSecretsDir = "${filesDir}/secrets";
   wallpaperDir = "${filesDir}/wallpapers";
 in
 {
@@ -71,11 +72,11 @@ in
   # Decrypt our tarballs.
   # We need to reference age and tar from the packages as our PATH is unset during nixos-rebuild.
   home.activation.unpackTarballs = ''
-    if [ -f "${secretsDir}/homelab-workstation-wallpapers.age-pub" ] \
+    if [ -f "${pubSecretsDir}/homelab-workstation-wallpapers.age-pub" ] \
        && [ -f "${wallpaperDir}/wallpapers.tar.gz.age" ]; then
 
       ${pkgs.age}/bin/age -d \
-        -i ${secretsDir}/homelab_workstation_wallpapers.age-priv \
+        -i ${privSecretsDir}/homelab_workstation_wallpapers.age-priv \
         -o ${wallpaperDir}/wallpapers.tar.gz \
         ${wallpaperDir}/wallpapers.tar.gz.age
 
