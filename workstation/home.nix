@@ -74,17 +74,17 @@ in
        && [ -f "${wallpaperDir}/wallpapers.tar.gz.age" ]; then
 
       ${pkgs.age}/bin/age -d \
-        -i ${homeDir}/.secrets/homelab_workstation_wallpapers.age-priv \
-        -o ${homeDir}/.files/wallpapers/wallpapers.tar.gz \
-        ${homeDir}/.files/wallpapers/wallpapers.tar.gz.age
+        -i ${secretsDir}/homelab_workstation_wallpapers.age-priv \
+        -o ${wallpaperDir}/wallpapers.tar.gz \
+        ${wallpaperDir}/wallpapers.tar.gz.age
 
 
       ${pkgs.gnutar}/bin/tar \
         --use-compress-program=${pkgs.gzip}/bin/gzip \
-        -xvf ${homeDir}/.files/wallpapers/wallpapers.tar.gz \
-        -C ${homeDir}/.files/wallpapers
+        -xvf ${wallpaperDir}/wallpapers.tar.gz \
+        -C ${wallpaperDir}
     else
-      echo "Missing tarball or the secret to unpack wallpaper archive.
+      echo "Missing tarball or the secret to unpack wallpaper archive."
     fi
   '';
 
