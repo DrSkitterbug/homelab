@@ -19,7 +19,13 @@ in
   ];
 
   # Lapce Nix module for IDE and text editing
-  programs.lapce.enable = true;
+  programs.vscodium = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-extensions; [
+      bbenoist.nix
+    ];
+  }
   
   # Manage file associations
   xdg = {
