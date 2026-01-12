@@ -16,16 +16,17 @@ in
     gnupg
     agenix.packages.x86_64-linux.default
     age
+    vscodium
   ];
 
-  # Lapce Nix module for IDE and text editing
-  programs.vscodium = {
+  # Program Nix module for IDE and text editing
+  programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
     ];
-  }
+  };
   
   # Manage file associations
   xdg = {
