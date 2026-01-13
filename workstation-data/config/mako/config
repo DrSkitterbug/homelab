@@ -1,10 +1,16 @@
+# ~/.config/mako/config
+
+# Default timeout for all notifications in milliseconds
 default-timeout=15000
 
 [urgency=low]
-timeout=10000
+border-color=#cccccc
+default-timeout=15000
 
 [urgency=normal]
-timeout=15000
+border-color=#d08770
+default-timeout=20000
 
-[urgency=critical]
-timeout=30000
+[urgency=high]
+border-color=#bf616a
+default-timeout=30000
